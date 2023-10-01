@@ -7,13 +7,18 @@ public class ZooManagement {
 		Animal animal2 = new Animal("Lion","Felidae",10,true);
 		Animal animal3 = new Animal("Dolphin","Delphinidae",20,true);
 		
-		Zoo zoo = new Zoo("frigya","tunisie",10);
+		Zoo zoo = new Zoo("frigya","tunisie");
+		Zoo zoo2 = new Zoo("zoo2","hammamet");
+		
 		System.out.println(zoo);
 		System.out.println(zoo.toString());
 		zoo.addAnimal(animal1);
 		zoo.addAnimal(animal2);
 		zoo.addAnimal(animal3);
 		System.out.println(zoo.animals[1]);
+		System.out.println("**************le Zoo avec le plus  d'animaux. **********");
+
+		System.out.println(Zoo.comparerZoo(zoo, zoo2));
 
 
 		System.out.println(zoo.searchAnimal(animal1));
@@ -23,6 +28,9 @@ public class ZooManagement {
 		System.out.println(zoo.searchAnimal(sameAnimal1));
 		
         System.out.println(zoo.removeAnimal(sameAnimal1));
+        int i=0;
+        System.out.println(i++);
+        System.out.println(++i);
 
 
 

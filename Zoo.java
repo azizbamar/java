@@ -4,14 +4,13 @@ public class Zoo {
 	Animal [] animals;
 	String name;
 	String city;
-	int nbrCages;
+	final int nbrCages = 25;
     int nbrAnimals;
 
-	public Zoo(String name, String city, int nbrCages) {
+	public Zoo(String name, String city) {
 		animals = new Animal[nbrCages];
 		this.name = name;
 		this.city = city;
-		this.nbrCages = nbrCages;
 		}
 	
     void displayZoo() {
@@ -54,5 +53,15 @@ public class Zoo {
             this.nbrAnimals--;
         }
         return true;
+    }
+    boolean isZooFull() {
+    	return this.nbrAnimals == this.nbrCages;
+    }
+    static Zoo comparerZoo(Zoo z1, Zoo z2) {
+    	if (z1.nbrAnimals >= z2.nbrAnimals) {
+    		return z1;
+    	}
+    	else return z2;
+    	
     }
 }
