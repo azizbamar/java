@@ -4,7 +4,7 @@ public class Zoo {
 	Animal [] animals;
 	String name;
 	String city;
-	final int nbrCages = 25;
+	final int nbrCages = 3;
     int nbrAnimals;
     Aquatic[] aquaticAnimals;
     int nbraquaticAnimals;
@@ -62,14 +62,21 @@ public class Zoo {
     	System.out.println("nb penguin "+nbPenguin+"------nb Dolphin  : " +nbDolphin);
     }
     
-    boolean addAnimal(Animal animal) {
-        if (searchAnimal(animal) != -1)
-            return false;
-        if (nbrAnimals == nbrCages)
-            return false;
-        animals[nbrAnimals] = animal;
-        nbrAnimals++;
-        return true;
+    void addAnimal(Animal animal) throws ZooFullException,InvalidAgeException{
+    if(animal.age>0) {
+    	if (nbrAnimals<nbrCages) {
+            animals[nbrAnimals] = animal;
+            nbrAnimals++;
+    	}
+    	else {
+    		throw new ZooFullException("zoo is full !");
+    	}
+    	
+    }
+    else {
+    	throw new InvalidAgeException("negatif age");
+    }
+
     }
     
     int searchAnimal(Animal animal) {
